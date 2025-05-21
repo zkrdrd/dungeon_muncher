@@ -1,4 +1,65 @@
 cmake_minimum_required(VERSION 3.10)
 project(dungeon_muncher)
-add_executable(dungeon_muncher main.cpp)
-set(CMAKE_EXE_LINKER_FLAGS "-static")
+
+# Добавляем цель для очистки
+add_custom_target(clean_all
+    COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}/*
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}
+    COMMENT "Полная очистка build-директории"
+)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(SOURCE_DIRS 
+    entities
+    entities/race
+    items/books 
+    items/clothes 
+    items/potions 
+    items/scrolls 
+    items/weapon
+)
+
+foreach(DIR ${SOURCE_DIRS})
+    file(GLOB DIR_SOURCES "${DIR}/*.cpp")
+    if(DIR_SOURCES)
+        list(APPEND ALL_SOURCES ${DIR_SOURCES})
+    else()
+        message(WARNING "No .cpp files found in ${DIR}")
+    endif()
+endforeach()
+
+file(GLOB MAIN_SOURCE "src/main.cpp")
+add_executable(${PROJECT_NAME} ${MAIN_SOURCE} ${ALL_SOURCES})
+
+if(MINGW)
+    set(CMAKE_EXE_LINKER_FLAGS "-static")
+elseif(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/includes/entities
+)
+
+# Для Windows: отключаем консоль для GUI приложений (опционально)
+# if(WIN32)
+#     set_target_properties(${PROJECT_NAME} PROPERTIES
+#         WIN32_EXECUTABLE TRUE
+#     )
+# endif()
+
+# set(CMAKE_EXE_LINKER_FLAGS "-static")
+# target_include_directories(dungeon_muncher PRIVATE 
+#     ${CMAKE_CURRENT_SOURCE_DIR}/include
+# )
+# file(GLOB SOURCES "src/*.cpp")
+# add_executable(MyApp ${SOURCES})
+
+# cd build 
+# cmake .. -G "MinGW Makefiles" -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++
+# cmake ..
+# cmake --build .
+# make
