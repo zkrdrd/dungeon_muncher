@@ -41,7 +41,9 @@ endif()
 
 
 target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/includes/
     ${CMAKE_CURRENT_SOURCE_DIR}/includes/entities
+    ${CMAKE_CURRENT_SOURCE_DIR}/includes/specifications
 )
 
 # Для Windows: отключаем консоль для GUI приложений (опционально)
