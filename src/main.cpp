@@ -6,8 +6,8 @@
 int main()
 {
     Character<int, std::string> hero;
-    hero.setCharacterName("Aragorn");
-    std::string name = hero.getCharacterName();
+    hero.set_character_name("Aragorn");
+    std::string name = hero.get_character_name();
     std::cout << name << std::endl;
     // hero.setHP(100.5f);
     // hero.applyDamage(20.3f);
