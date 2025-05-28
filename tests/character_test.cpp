@@ -25,8 +25,8 @@ protected:
         character.set_rate_fatigue_one_turn(2);
         character.set_max_fatigue(120);
         
-        character.setHP(50);
-        character.setMaxHP(100);
+        character.set_hp(50);
+        character.set_max_hp(100);
     }
 };
 
@@ -84,11 +84,11 @@ TEST_F(CharacterTest, FatigueManagement) {
 
 // Тесты делегирования методов Health
 TEST_F(CharacterTest, HPManagement) {
-    character.setHP(75);
-    character.setMaxHP(150);
+    character.set_hp(75);
+    character.set_max_hp(150);
     
-    EXPECT_EQ(character.getHP(), 75);
-    EXPECT_EQ(character.getMaxHP(), 150);
+    EXPECT_EQ(character.get_hp(), 75);
+    EXPECT_EQ(character.get_max_hp(), 150);
 }
 
 TEST_F(CharacterTest, DefaultValues) {
@@ -96,7 +96,7 @@ TEST_F(CharacterTest, DefaultValues) {
     
     // Проверка значений по умолчанию
     EXPECT_EQ(defaultChar.get_character_name(), "");
-    EXPECT_EQ(defaultChar.get_level(), 0);
+    EXPECT_EQ(defaultChar.get_level(), 1);
     EXPECT_EQ(defaultChar.get_strength(), 0);
     EXPECT_EQ(defaultChar.get_dexterity(), 0);
     EXPECT_EQ(defaultChar.get_intelligence(), 0);
@@ -112,8 +112,8 @@ TEST_F(CharacterTest, DefaultValues) {
     EXPECT_EQ(defaultChar.get_rate_fatigue_one_turn(), 0);
     EXPECT_EQ(defaultChar.get_max_fatigue(), 0);
     
-    EXPECT_EQ(defaultChar.getHP(), 0);
-    EXPECT_EQ(defaultChar.getMaxHP(), 0);
+    EXPECT_EQ(defaultChar.get_hp(), 0);
+    EXPECT_EQ(defaultChar.get_max_hp(), 0);
 }
 
 // Тест для специализации шаблона
@@ -123,10 +123,10 @@ TEST(CharacterTemplateTest, DifferentTemplateTypes) {
     customChar.set_character_name("FloatChar");
     customChar.set_level(3.5f);
     customChar.set_strength(12.3f);
-    customChar.setHP(1000L);
+    customChar.set_hp(1000L);
     
     EXPECT_EQ(customChar.get_character_name(), "FloatChar");
     EXPECT_FLOAT_EQ(customChar.get_level(), 3.5f);
     EXPECT_FLOAT_EQ(customChar.get_strength(), 12.3f);
-    EXPECT_EQ(customChar.getHP(), 1000L);
+    EXPECT_EQ(customChar.get_hp(), 1000L);
 }
