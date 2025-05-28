@@ -1,6 +1,6 @@
 .vscode
 **/bin
 **/obj
-**/build
+**/build*
 *.cbp
 *.layout
