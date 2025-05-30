@@ -5,6 +5,8 @@ project(CharacterTest)
 find_package(GTest REQUIRED)
 include(GoogleTest)
 
+set(CMAKE_BUILD_TYPE Debug) 
+
 # Указываем директорию с заголовочными файлами (например, include/)
 include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../include/
