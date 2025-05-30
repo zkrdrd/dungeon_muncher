@@ -8,8 +8,8 @@ template <typename THP = int>
 class Health
 {
 private:
-    THP health_points_;
-    THP max_health_points_;
+    THP health_points_{};
+    THP max_health_points_{};
 
 public:
     // Конструктор

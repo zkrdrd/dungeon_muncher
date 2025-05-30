@@ -4,3 +4,5 @@
 **/build*
 *.cbp
 *.layout
+**/Testing
+**/tests/*.xml

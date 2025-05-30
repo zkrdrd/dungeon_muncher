@@ -8,7 +8,7 @@ private:
     // Имя персонажа
     TName person_name_{};
     // Уровень
-    TStats level_{1};
+    TStats level_{};
     // Сила
     TStats strength_{};
     // Ловкость

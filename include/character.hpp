@@ -10,6 +10,9 @@ template <typename TStats = int,
 // requires std::is_same_v<TStats, int>
 
 // requires std::is_same_v<TStats, int> && std::is_arithmetic_v<THP>
+
+// todo:
+// сделать поля конкретного типа данных
 class Character
 {
 private:
@@ -76,7 +79,7 @@ public:
     void set_max_fatigue(TNeeds value) noexcept;
 
     [[nodiscard]] TNeeds get_max_fatigue() const noexcept;
-    
+
     void set_hp(THP value) noexcept;
 
     [[nodiscard]] THP get_hp() const noexcept;
@@ -84,6 +87,19 @@ public:
     void set_max_hp(THP value) noexcept;
 
     [[nodiscard]] THP get_max_hp() const noexcept;
+
+    void take_damage(THP value) noexcept;
+
+    void healing(THP value) noexcept;
+
+    // todo
+    [[maybe_unused]] void death() noexcept;
+
+    // проголодался
+    // устал
+    // сделал шаг
+
+    //[[nodiscard]] THP get_max_hp() const noexcept;
 
     // // Делегируем методы Health
     // void setHP(THP value) noexcept {

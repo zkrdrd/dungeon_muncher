@@ -3,4 +3,4 @@ mkdir build
 cd build
 cmake ..
 cmake --build .
-dungeon_muncher
+./dungeon_muncher
