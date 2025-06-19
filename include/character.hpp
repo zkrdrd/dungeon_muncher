@@ -32,6 +32,10 @@ public:
 
     [[nodiscard]] TStats get_level() const noexcept;
 
+    void set_experience(TStats value) noexcept;
+
+    [[nodiscard]] TStats get_experience() const noexcept;
+
     void set_strength(TStats value) noexcept;
 
     [[nodiscard]] TStats get_strength() const noexcept;

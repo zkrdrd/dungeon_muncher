@@ -16,6 +16,21 @@ template <typename TStats, typename TName, typename TNeeds, typename THP>
     return stats_.get_person_name();
 }
 
+// Устанавливает опыт песонажа.
+/// @param value Опыт (должен быть >= 0) int.
+template <typename TStats, typename TName, typename TNeeds, typename THP>
+void Character<TStats, TName, TNeeds, THP>::set_experience(TStats value) noexcept
+{
+    stats_.set_experience(value);
+}
+
+/// Возвращает опыт персонажа int.
+template <typename TStats, typename TName, typename TNeeds, typename THP>
+[[nodiscard]] TStats Character<TStats, TName, TNeeds, THP>::get_experience() const noexcept
+{
+    return stats_.get_experience();
+}
+
 // Устанавливает уровень персонажа.
 /// @param value Новый уровень (должен быть >= 0) int.
 template <typename TStats, typename TName, typename TNeeds, typename THP>

@@ -7,29 +7,29 @@ class CharacterTest : public ::testing::Test
 protected:
     Character<int, std::string, int, int> character;
 
-    void SetUp() override
-    {
-        // Инициализация персонажа с тестовыми значениями
-        character.set_character_name("TestHero");
-        character.set_level(5);
-        character.set_strength(10);
-        character.set_dexterity(8);
-        character.set_intelligence(7);
-        character.set_damage(15);
-        character.set_physical_protection(3);
-        character.set_magical_protection(2);
+    // void SetUp() override
+    // {
+    //     // Инициализация персонажа с тестовыми значениями
+    //     character.set_character_name("TestHero");
+    //     character.set_level(5);
+    //     character.set_strength(10);
+    //     character.set_dexterity(8);
+    //     character.set_intelligence(7);
+    //     character.set_damage(15);
+    //     character.set_physical_protection(3);
+    //     character.set_magical_protection(2);
 
-        character.set_hunger(20);
-        character.set_rate_hunger_one_turn(1);
-        character.set_max_hunger(100);
+    //     character.set_hunger(20);
+    //     character.set_rate_hunger_one_turn(1);
+    //     character.set_max_hunger(100);
 
-        character.set_fatigue(30);
-        character.set_rate_fatigue_one_turn(2);
-        character.set_max_fatigue(120);
+    //     character.set_fatigue(30);
+    //     character.set_rate_fatigue_one_turn(2);
+    //     character.set_max_fatigue(120);
 
-        character.set_hp(50);
-        character.set_max_hp(100);
-    }
+    //     character.set_hp(50);
+    //     character.set_max_hp(100);
+    // }
 };
 
 // Тесты делегирования методов Stats

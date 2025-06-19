@@ -9,6 +9,8 @@ private:
     TName person_name_{};
     // Уровень
     TStats level_{};
+    // Опыт
+    TStats experience_{};
     // Сила
     TStats strength_{};
     // Ловкость
@@ -36,11 +38,11 @@ public:
         person_name_ = value;
     }
 
-    // Получить имя персонажа
-    // Функция возвращает строку
-    [[nodiscard]] TName get_person_name() const noexcept
+    // Получить опыт персонажа
+    // Функция возвращает число
+    [[nodiscard]] TStats get_experience() const noexcept
     {
-        return person_name_;
+        return experience_
     }
 
     // Установить уровень персонажа
@@ -48,6 +50,20 @@ public:
     void set_level(TStats value) noexcept
     {
         level_ = value;
+    }
+    
+    // Получить имя персонажа
+    // Функция возвращает строку
+    [[nodiscard]] TName get_person_name() const noexcept
+    {
+        return person_name_;
+    }
+
+    // Установить опыт персонажу
+    // Функция принимает число
+    void set_experience(TStats value) noexcept
+    {
+        experience_ = value;
     }
 
     // Получить уровень персонажа
