@@ -1,6 +1,8 @@
 .vscode
 **/bin
 **/obj
-**/build
+**/build*
 *.cbp
 *.layout
+**/Testing
+**/tests/*.xml
